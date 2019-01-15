@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task number="8">
+    <variant number="1">
+        <question>Вопрос из задания 8 вариант 1</question>
+        <answer>Ответ 8 1</answer>
+    </variant>
+
+    <variant number="2">
+        <question>Вопрос из задания 8 вариант 2</question>
+        <answer>Ответ 8 2</answer>
+    </variant>
+
+    <variant number="3">
+        <question>Вопрос из задания 8 вариант 3</question>
+        <answer>Ответ 8 3</answer>
+    </variant>
+
+    <variant number="4">
+        <question>Вопрос из задания 8 вариант 4</question>
+        <answer>Ответ 8 4</answer>
+    </variant>
+
+    <variant number="5">
+        <question>Вопрос из задания 8 вариант 5</question>
+        <answer>Ответ 8 5</answer>
+    </variant>
+</task>
