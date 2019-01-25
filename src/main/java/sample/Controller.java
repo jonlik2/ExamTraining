@@ -3,7 +3,6 @@ package sample;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -34,12 +33,17 @@ public class Controller {
     private Button btnAnswer;
 
     @FXML
-    private Button btnSkip;
+    private Button btnNext;
+
+    @FXML
+    private Label textResult;
 
     private Main mainApp;
 
     private Repository repository;
-    private int numberTask;
+
+    private int currentNumberOfVariant;
+    private int currentNumberOfTask;
 
     public Controller() {
         repository = new Repository();
@@ -48,32 +52,53 @@ public class Controller {
     @FXML
     private void initialize() {
         chbTask.setItems(FXCollections.observableArrayList(getTitlesTask()));
+        chbTask.getSelectionModel().selectFirst();
 
-        chbTask.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                numberTask = getNumberTask(newValue);
+        chbTask.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.equals("Выберите задание")) {
+                textQuestion.setText("");
+            } else {
+                currentNumberOfTask = getNumberTask(newValue);
+                currentNumberOfVariant = 1;
+                currentNum.setText(String.valueOf(currentNumberOfVariant));
                 Task task = repository.getTaskByNumber(getNumberTask(newValue));
-                textQuestion.setText(task.getVariants().get(0).getQuestion());
+                allNum.setText(String.valueOf(task.getVariants().size()));
+                textQuestion.setText(task.getVariants().get(currentNumberOfVariant - 1).getQuestion());
             }
         });
 
-        btnAnswer.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            public void handle(MouseEvent event) {
-                String answer = textAnswer.getText();
-                String originalAnswer = repository.getTaskByNumber(numberTask).getVariants().get(0).getAnswer();
-                if (answer.equals(originalAnswer)) {
-                    showAlert("YES");
-                } else {
-                    showAlert("NO");
-                }
-            }
-        });
+        btnAnswer.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> checkAnswer());
+
+        btnNext.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> nextVariant());
     }
 
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText(message);
-        alert.showAndWait();
+    private void checkAnswer() {
+        String answer = textAnswer.getText();
+        String originalAnswer = repository.getTaskByNumber(currentNumberOfTask).getVariants().get(currentNumberOfVariant - 1).getAnswer();
+        if (answer.equals(originalAnswer)) {
+            textResult.setText("Правильный ответ");
+        } else {
+            textResult.setText("Неправильный ответ");
+        }
+    }
+
+    private void nextVariant() {
+        if (checkNumberOfVariant()) {
+            currentNumberOfVariant++;
+            currentNum.setText(String.valueOf(currentNumberOfVariant));
+            textQuestion.setText(repository.getTaskByNumber(currentNumberOfTask).getVariants().get(currentNumberOfVariant - 1).getQuestion());
+            textResult.setText("");
+            textAnswer.setText("");
+        } else {
+            currentNumberOfVariant = 1;
+            textQuestion.setText("");
+            textResult.setText("Вы закончили данное задание. Выберите другое");
+            textAnswer.setText("");
+        }
+    }
+
+    private boolean checkNumberOfVariant() {
+        return currentNumberOfVariant <= repository.getTaskByNumber(currentNumberOfTask).getVariants().size() - 1;
     }
 
     private int getNumberTask(String titleTask) {
@@ -82,11 +107,17 @@ public class Controller {
 
     private List<String> getTitlesTask() {
         List<String> list = new ArrayList<String>();
+        list.add("Выберите задание");
         for (Task task : repository.getTasks()) {
             list.add(String.format("Задание №%d", task.getNumber()));
         }
         return list;
     }
 
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
 }

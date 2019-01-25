@@ -41,8 +41,7 @@
          </font>
       </TextArea>
       <TextField fx:id="textAnswer" layoutX="15.0" layoutY="290.0" prefHeight="25.0" prefWidth="573.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="290.0" />
-      <Button fx:id="btnAnswer" layoutX="198.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ответить" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="325.0" />
-      <Button fx:id="btnSkip" layoutX="302.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Пропустить" />
+      <Button fx:id="btnAnswer" layoutX="185.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ответить" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="325.0" />
       <Label fx:id="currentNum" layoutX="539.0" layoutY="37.0" text="0" AnchorPane.leftAnchor="539.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="37.0">
          <font>
             <Font size="14.0" />
@@ -58,5 +57,11 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <Label fx:id="textResult" alignment="CENTER" layoutX="11.0" layoutY="361.0" prefHeight="27.0" prefWidth="576.0" textAlignment="CENTER" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="13.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnNext" layoutX="287.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Следующий" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="213.0" />
    </children>
 </AnchorPane>
