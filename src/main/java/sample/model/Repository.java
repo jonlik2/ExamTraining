@@ -18,8 +18,17 @@ public class Repository {
 
     private List<Task> tasks = new ArrayList<Task>();
 
-    public Repository() {
+    private static Repository instance;
+
+    private Repository() {
         parseXML();
+    }
+
+    public static synchronized Repository getInstance() {
+        if (instance == null) {
+            instance = new Repository();
+        }
+        return instance;
     }
 
     public List<Task> getTasks() {
