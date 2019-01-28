@@ -1,11 +1,24 @@
 package sample.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import sample.Main;
 import sample.model.Repository;
 
+import java.io.IOException;
+
 public class RootController {
+
+    @FXML
+    private Label menuStat;
 
     private Main mainApp;
 
@@ -21,7 +34,7 @@ public class RootController {
 
     @FXML
     private void handleStat() {
-        System.out.println("kek");
+        mainApp.initStatLayout();
     }
 
     @FXML

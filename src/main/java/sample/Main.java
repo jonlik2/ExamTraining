@@ -5,9 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.controller.MainController;
 import sample.controller.RootController;
+import sample.controller.StatController;
 
 import java.io.IOException;
 
@@ -54,6 +56,28 @@ public class Main extends Application {
             MainController controller = loader.getController();
             controller.setMainApp(this);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void initStatLayout() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/stat_layout.fxml"));
+            AnchorPane pane = loader.load();
+
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setTitle("Статистика");
+            stage.initOwner(primaryStage);
+
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+
+            StatController controller = loader.getController();
+            controller.setMainApp(this);
+
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

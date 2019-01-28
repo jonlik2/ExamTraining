@@ -15,11 +15,14 @@
               <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Выход" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Статистика">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="KEK" />
-               </items></Menu>
-          <Menu mnemonicParsing="false" onAction="#handleAbout" text="О программе" />
+          <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label fx:id="menuStat" onMouseClicked="#handleStat" text="Статистика" />
+               </graphic></Menu>
+          <Menu mnemonicParsing="false" onAction="#handleAbout">
+               <graphic>
+                  <Label onMouseClicked="#handleAbout" text="О программе" />
+               </graphic></Menu>
         </menus>
       </MenuBar>
    </top>
