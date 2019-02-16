@@ -44,6 +44,8 @@ public class MainController {
     private int currentNumberOfVariant;
     private int currentNumberOfTask;
 
+    private int score;
+
     public MainController() {
         repository = Repository.getInstance();
     }
@@ -77,6 +79,7 @@ public class MainController {
                 btnNext.setDisable(false);
                 btnAnswer.setDisable(false);
                 textResult.setText("");
+                score = 0;
             }
         });
     }
@@ -94,6 +97,7 @@ public class MainController {
         String originalAnswer = repository.getTaskByNumber(currentNumberOfTask).getVariants().get(currentNumberOfVariant - 1).getAnswer();
         if (answer.equals(originalAnswer)) {
             textResult.setText("Правильный ответ");
+            score++;
         } else {
             textResult.setText("Неправильный ответ");
         }
@@ -108,7 +112,7 @@ public class MainController {
         } else {
             currentNumberOfVariant = 1;
             textQuestion.setText("");
-            textResult.setText("Вы закончили данное задание. Выберите другое");
+            textResult.setText("Вы закончили данное задание. Выберите другое!\nПравильных ответов: " + score);
             btnNext.setDisable(true);
             btnAnswer.setDisable(true);
         }

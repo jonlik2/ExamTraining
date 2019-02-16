@@ -19,8 +19,8 @@
          </font>
       </Label>
       <ChoiceBox fx:id="chbTask" layoutX="73.0" layoutY="18.0" prefHeight="25.0" prefWidth="452.0" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="18.0" />
-      <TextField fx:id="textAnswer" layoutX="12.0" layoutY="279.0" prefHeight="25.0" prefWidth="573.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="279.0" />
-      <Button fx:id="btnAnswer" layoutX="185.0" layoutY="316.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ответить" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="316.0" />
+      <TextField fx:id="textAnswer" layoutX="12.0" layoutY="273.0" prefHeight="25.0" prefWidth="573.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="273.0" />
+      <Button fx:id="btnAnswer" layoutX="185.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Ответить" AnchorPane.bottomAnchor="73.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="302.0" />
       <Label fx:id="currentNum" layoutX="539.0" layoutY="22.0" text="0" AnchorPane.leftAnchor="539.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="22.0">
          <font>
             <Font size="14.0" />
@@ -36,12 +36,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="textResult" alignment="CENTER" layoutX="11.0" layoutY="348.0" prefHeight="27.0" prefWidth="576.0" textAlignment="CENTER" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="13.0">
+      <Label fx:id="textResult" alignment="CENTER" layoutX="10.0" layoutY="329.0" prefHeight="68.0" prefWidth="580.0" textAlignment="CENTER" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnNext" layoutX="287.0" layoutY="316.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Следующий" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="213.0" />
+      <Button fx:id="btnNext" layoutX="287.0" layoutY="302.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Следующий" AnchorPane.bottomAnchor="73.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="213.0" />
       <Label fx:id="textQuestion" alignment="TOP_LEFT" layoutX="12.0" layoutY="60.0" prefHeight="200.0" prefWidth="573.0" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="60.0">
          <font>
             <Font size="14.0" />
