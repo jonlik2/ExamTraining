@@ -17,6 +17,7 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
@@ -66,12 +67,10 @@ public class Repository {
                     JarEntry entry = entries.nextElement();
                     final String name = entry.getName();
                     if (name.startsWith(path + "/task")) { //filter according to the path
-                        System.out.println(name);
                         InputStream in = jar.getInputStream(entry);
                         File temp = File.createTempFile("Exam-", "-temp");
                         FileUtils.copyInputStreamToFile(in, temp);
                         files.add(temp);
-                        System.out.println(temp.getName());
                         in.close();
                         temp.deleteOnExit();
                     }
@@ -83,10 +82,7 @@ public class Repository {
                 if (url != null) {
                     try {
                         final File xmlFiles = new File(url.toURI());
-                        for (File xmlFile : xmlFiles.listFiles()) {
-                            files.add(xmlFile);
-                            System.out.println(xmlFile);
-                        }
+                        files.addAll(Arrays.asList(xmlFiles.listFiles()));
                     } catch (URISyntaxException ex) {
                         // never happens
                     }

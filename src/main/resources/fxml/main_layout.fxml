@@ -36,7 +36,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="textResult" alignment="CENTER" layoutX="10.0" layoutY="329.0" prefHeight="68.0" prefWidth="580.0" textAlignment="CENTER" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Label fx:id="textResult" alignment="TOP_CENTER" layoutX="10.0" layoutY="329.0" prefHeight="62.0" prefWidth="580.0" text="qwe" textAlignment="CENTER" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="14.0" />
          </font>
