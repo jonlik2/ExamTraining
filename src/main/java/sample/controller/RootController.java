@@ -19,10 +19,6 @@ public class RootController {
         repository = Repository.getInstance();
     }
 
-    /*public void setRepository(Repository repository) {
-        this.repository = repository;
-    }*/
-
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }

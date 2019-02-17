@@ -1,6 +1,5 @@
 package sample.controller;
 
-import javafx.fxml.FXML;
 import sample.Main;
 import sample.model.Repository;
 
