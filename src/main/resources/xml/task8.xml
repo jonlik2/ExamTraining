@@ -1,27 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <task number="8">
     <variant number="1">
-        <question>Вопрос из задания 8 вариант 1</question>
-        <answer>Ответ 8 1</answer>
+        <question>Выпишите грамматическую основку предложения:
+            "А то задали бы тебе полную порцию"
+        </question>
+        <answer>задали бы</answer>
     </variant>
 
     <variant number="2">
-        <question>Вопрос из задания 8 вариант 2</question>
-        <answer>Ответ 8 2</answer>
+        <question>Выпишите грамматическую основку предложения:
+            "Ну, а Бабура я наутро же поставил перед линейкой и в тот же день отчислил."</question>
+        <answer>я поставил отчислил</answer>
     </variant>
 
     <variant number="3">
-        <question>Вопрос из задания 8 вариант 3</question>
-        <answer>Ответ 8 3</answer>
+        <question>Выпишите грамматическую основку предложения:
+            "Мне было очень жалко Ивана Яковлевича"
+        </question>
+        <answer>было жалко</answer>
     </variant>
 
     <variant number="4">
-        <question>Вопрос из задания 8 вариант 4</question>
-        <answer>Ответ 8 4</answer>
+        <question>Выпишите грамматическую основку предложения:
+            "Ага, Лось, теперь тебя из школы погонят"
+        </question>
+        <answer>погонят</answer>
     </variant>
 
     <variant number="5">
-        <question>Вопрос из задания 8 вариант 5</question>
-        <answer>Ответ 8 5</answer>
+        <question>Выпишите грамматическую основку предложения:
+            "Вот как раз недели три тому назад тут перевозчика осколком убило"
+        </question>
+        <answer>убило</answer>
+    </variant>
+
+    <variant number="6">
+        <question>Выпишите грамматическую основку предложения:
+            "Лучшего проводника и не придумаешь."
+        </question>
+        <answer>не придумаешь</answer>
+    </variant>
+
+    <variant number="7">
+        <question>Выпишите грамматическую основку предложения:
+            "И её полон трюм."
+        </question>
+        <answer>полон трюм</answer>
+    </variant>
+
+    <variant number="8">
+        <question>Выпишите грамматическую основку предложения:
+            "А может, мне только кажется..."
+        </question>
+        <answer>кажется</answer>
+    </variant>
+
+    <variant number="9">
+        <question>Выпишите грамматическую основку предложения:
+            "Но в саду на скамейке уже не было моего дневника"
+        </question>
+        <answer>не было</answer>
+    </variant>
+
+    <variant number="10">
+        <question>Выпишите грамматическую основку предложения:
+            "В чём я совсем не была виновата"
+        </question>
+        <answer>я не была виновата</answer>
+    </variant>
+
+    <variant number="11">
+        <question>Выпишите грамматическую основку предложения:
+            "Вот как раз недели три тому назад тут перевозчика осколком убило"
+        </question>
+        <answer>убило</answer>
+    </variant>
+
+    <variant number="12">
+        <question>Выпишите грамматическую основку предложения:
+            "Одной шарманкой, без Митьки, на хлеб не заработаешь"
+        </question>
+        <answer>не заработаешь</answer>
+    </variant>
+
+    <variant number="13">
+        <question>Выпишите грамматическую основку предложения:
+            "Снова он был победителем"
+        </question>
+        <answer>он был победителем</answer>
     </variant>
 </task>
