@@ -93,7 +93,7 @@ public class MainController {
     }
 
     private void checkAnswer() {
-        String answer = textAnswer.getText();
+        String answer = textAnswer.getText().trim();
         String originalAnswer = repository.getTaskByNumber(currentNumberOfTask).getVariants().get(currentNumberOfVariant - 1).getAnswer();
         if (answer.equalsIgnoreCase(originalAnswer)) {
             textResult.setText("Правильный ответ");
