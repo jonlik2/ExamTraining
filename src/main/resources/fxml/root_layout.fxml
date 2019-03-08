@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -12,9 +13,15 @@
         <menus>
           <Menu mnemonicParsing="false" text="Файл">
             <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleReset" text="Сбросить прогресс" />
               <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Выход" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label fx:id="menuTheory" text="Теория" />
+               </graphic>
+            </Menu>
           <Menu mnemonicParsing="false">
                <graphic>
                   <Label fx:id="menuStat" onMouseClicked="#handleStat" text="Статистика" />

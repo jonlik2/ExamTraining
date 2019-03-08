@@ -11,14 +11,14 @@ import sample.Main;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 
 public class Repository {
 
@@ -28,6 +28,7 @@ public class Repository {
 
     private Repository() {
         parseXML();
+        initPreferences();
     }
 
     public static synchronized Repository getInstance() {
@@ -116,5 +117,23 @@ public class Repository {
         }
     }
 
-
+    private void initPreferences() {
+        Preferences preferences = Preferences.userRoot().node("ExamApp");
+        try {
+            if (!preferences.nodeExists("tasks")) {
+                Preferences prefs = preferences.node("tasks");
+                List<Task> tasks = getTasks();
+                for (Task task : tasks) {
+                    Preferences node = prefs.node(String.valueOf(task.getNumber()));
+                    node.put("variant", "1");
+                    node.put("score", "0");
+                }
+                if (prefs.get("current", null) == null) {
+                    prefs.put("current", "0");
+                }
+            }
+        } catch (BackingStoreException e) {
+            e.printStackTrace();
+        }
+    }
 }

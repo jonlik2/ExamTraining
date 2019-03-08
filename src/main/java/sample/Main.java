@@ -11,13 +11,18 @@ import javafx.stage.Stage;
 import sample.controller.MainController;
 import sample.controller.RootController;
 import sample.controller.StatController;
+import sample.model.Repository;
+import sample.model.Task;
 
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 public class Main extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+
+    private MainController mainController;
 
     @Override
     public void start(Stage primaryStage) {
@@ -55,8 +60,8 @@ public class Main extends Application {
 
             rootLayout.setCenter(pane);
 
-            MainController controller = loader.getController();
-            controller.setMainApp(this);
+            mainController = loader.getController();
+            mainController.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,6 +87,19 @@ public class Main extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void saveStat() {
+        Preferences prefs = Preferences.userRoot().node("ExamApp").node("tasks");
+        prefs.put("current", String.valueOf(mainController.getCurrentNumberOfTask()));
+        prefs.node(String.valueOf(mainController.getCurrentNumberOfTask())).put("variant", String.valueOf(mainController.getCurrentNumberOfVariant()));
+        prefs.node(String.valueOf(mainController.getCurrentNumberOfTask())).put("score", String.valueOf(mainController.getScore()));
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        saveStat();
     }
 
     public static void main(String[] args) {

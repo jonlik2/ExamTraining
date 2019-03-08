@@ -41,4 +41,9 @@ public class RootController {
     private void handleExit() {
         System.exit(0);
     }
+
+    @FXML
+    private void handleReset() {
+        System.out.println("Reset");
+    }
 }
