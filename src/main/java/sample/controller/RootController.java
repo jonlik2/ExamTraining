@@ -5,17 +5,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import sample.Main;
 import sample.model.Repository;
+import sample.model.Task;
+
+import java.util.List;
+import java.util.prefs.Preferences;
 
 public class RootController {
-
-    @FXML
-    private Label menuStat;
 
     private Main mainApp;
 
     private Repository repository;
 
-    public RootController(){
+    public RootController() {
         repository = Repository.getInstance();
     }
 
@@ -44,6 +45,14 @@ public class RootController {
 
     @FXML
     private void handleReset() {
-        System.out.println("Reset");
+        Preferences preferences = Preferences.userRoot().node("ExamApp");
+        Preferences prefs = preferences.node("tasks");
+        List<Task> tasks = repository.getTasks();
+        for (Task task : tasks) {
+            Preferences node = prefs.node(String.valueOf(task.getNumber()));
+            node.put("variant", "1");
+            node.put("score", "0");
+        }
+        prefs.put("current", "0");
     }
 }
