@@ -86,13 +86,7 @@ public class MainController {
             currentNumberOfVariant = Integer.parseInt(prefs.node(String.valueOf(currentNumberOfTask)).get("variant", null));
             score = Integer.parseInt(prefs.node(String.valueOf(currentNumberOfTask)).get("score", null));
 
-            Task currentTask = repository.getTaskByNumber(currentNumberOfTask);
-            currentNum.setText(String.valueOf(currentNumberOfVariant));
-            allNum.setText(String.valueOf(currentTask.getVariants().size()));
-            textQuestion.setText(currentTask.getVariants().get(currentNumberOfVariant - 1).getQuestion());
-            textResult.setText("");
-            btnAnswer.setDisable(false);
-            btnNext.setDisable(false);
+            initUI();
 
             chbTask.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
                 saveStat(currentNumberOfTask, currentNumberOfVariant, score);
@@ -106,13 +100,7 @@ public class MainController {
                     currentNumberOfVariant = Integer.parseInt(prefs.node(String.valueOf(currentNumberOfTask)).get("variant", null));
                     score = Integer.parseInt(prefs.node(String.valueOf(currentNumberOfTask)).get("score", null));
 
-                    Task task = repository.getTaskByNumber(currentNumberOfTask);
-                    currentNum.setText(String.valueOf(currentNumberOfVariant));
-                    allNum.setText(String.valueOf(task.getVariants().size()));
-                    textQuestion.setText(task.getVariants().get(currentNumberOfVariant - 1).getQuestion());
-                    textResult.setText("");
-                    btnAnswer.setDisable(false);
-                    btnNext.setDisable(false);
+                    initUI();
                 }
             });
 
@@ -131,17 +119,21 @@ public class MainController {
                     currentNumberOfVariant = 1;
                     score = 0;
 
-                    Task task = repository.getTaskByNumber(currentNumberOfTask);
-                    currentNum.setText(String.valueOf(currentNumberOfVariant));
-                    allNum.setText(String.valueOf(task.getVariants().size()));
-                    textQuestion.setText(task.getVariants().get(currentNumberOfVariant - 1).getQuestion());
-                    textResult.setText("");
-                    btnAnswer.setDisable(false);
-                    btnNext.setDisable(false);
+                    initUI();
                 }
             });
         }
 
+    }
+
+    private void initUI() {
+        Task currentTask = repository.getTaskByNumber(currentNumberOfTask);
+        currentNum.setText(String.valueOf(currentNumberOfVariant));
+        allNum.setText(String.valueOf(currentTask.getVariants().size()));
+        textQuestion.setText(currentTask.getVariants().get(currentNumberOfVariant - 1).getQuestion());
+        textResult.setText("");
+        btnAnswer.setDisable(false);
+        btnNext.setDisable(false);
     }
 
     private void initButtons() {
