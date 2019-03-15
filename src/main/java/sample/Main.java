@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 import sample.controller.MainController;
 import sample.controller.RootController;
 import sample.controller.StatController;
-import sample.model.Repository;
-import sample.model.Task;
 
 import java.io.IOException;
 import java.util.prefs.Preferences;
@@ -94,6 +92,11 @@ public class Main extends Application {
         prefs.put("current", String.valueOf(mainController.getCurrentNumberOfTask()));
         prefs.node(String.valueOf(mainController.getCurrentNumberOfTask())).put("variant", String.valueOf(mainController.getCurrentNumberOfVariant()));
         prefs.node(String.valueOf(mainController.getCurrentNumberOfTask())).put("score", String.valueOf(mainController.getScore()));
+    }
+
+    public void reset() {
+        initMainLayout();
+        mainController.reset();
     }
 
     @Override

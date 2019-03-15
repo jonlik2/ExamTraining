@@ -92,9 +92,7 @@ public class MainController {
                 saveStat(currentNumberOfTask, currentNumberOfVariant, score);
 
                 if (newValue.equals("Выберите задание")) {
-                    textQuestion.setText("");
-                    btnAnswer.setDisable(true);
-                    btnNext.setDisable(true);
+                    resetUI();
                 } else {
                     currentNumberOfTask = getNumberOfTask(newValue);
                     currentNumberOfVariant = Integer.parseInt(prefs.node(String.valueOf(currentNumberOfTask)).get("variant", null));
@@ -111,9 +109,7 @@ public class MainController {
                 saveStat(currentNumberOfTask, currentNumberOfVariant, score);
 
                 if (newValue.equals("Выберите задание")) {
-                    textQuestion.setText("");
-                    btnAnswer.setDisable(true);
-                    btnNext.setDisable(true);
+                    resetUI();
                 } else {
                     currentNumberOfTask = getNumberOfTask(newValue);
                     currentNumberOfVariant = 1;
@@ -134,6 +130,14 @@ public class MainController {
         textResult.setText("");
         btnAnswer.setDisable(false);
         btnNext.setDisable(false);
+    }
+
+    private void resetUI() {
+        textQuestion.setText("");
+        currentNum.setText("0");
+        allNum.setText("0");
+        btnAnswer.setDisable(true);
+        btnNext.setDisable(true);
     }
 
     private void initButtons() {
@@ -207,19 +211,8 @@ public class MainController {
         alert.showAndWait();
     }
 
-    /*private int getNumberVar(int numberTask) {
-        try {
-            String[] tasksNames = Preferences.userRoot().node("ExamApp").node("tasks").childrenNames();
-            for (String num : tasksNames) {
-                if (numberTask == Integer.parseInt(num)) {
-                    Preferences node = Preferences.userRoot().node("ExamApp").node("tasks").node(num);
-                    return Integer.parseInt(node.get("variant", "1"));
-                }
-            }
-        } catch (BackingStoreException e) {
-            e.printStackTrace();
-        }
-        return 1;
-    }*/
-
+    public void reset() {
+        chbTask.getSelectionModel().selectFirst();
+        resetUI();
+    }
 }
