@@ -68,7 +68,7 @@ public class RootController {
             node.put("variant", "1");
             node.put("score", "0");
         }
-        prefs.put("current", "0");
+        //prefs.put("current", "0");
 
         mainApp.reset();
     }
