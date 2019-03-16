@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.StatController">
+<AnchorPane prefHeight="330.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.StatController">
    <children>
-      <ListView fx:id="listView" layoutX="14.0" layoutY="18.0" prefHeight="320.0" prefWidth="576.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="18.0" />
+      <Label layoutX="17.0" layoutY="81.0" prefHeight="81.0" prefWidth="383.0" text="Количество решённых вариантов:" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="149.0" prefHeight="81.0" prefWidth="383.0" text="Количество правильных ответов:" textAlignment="CENTER" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ProgressIndicator fx:id="progressIndicator" layoutX="493.0" layoutY="99.0" prefHeight="118.0" prefWidth="124.0" progress="0.0" AnchorPane.rightAnchor="15.0" />
+      <ChoiceBox fx:id="choiceBox" layoutX="83.0" layoutY="28.0" prefHeight="25.0" prefWidth="470.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="28.0" />
+      <Line endX="100.0" layoutX="316.0" layoutY="68.0" startX="-100.0" stroke="#0e064d" />
+      <Label fx:id="allAnswerText" alignment="CENTER_RIGHT" layoutX="417.0" layoutY="79.0" prefHeight="87.0" prefWidth="50.0" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="trueAnswerText" alignment="CENTER_RIGHT" layoutX="417.0" layoutY="149.0" prefHeight="81.0" prefWidth="50.0" textAlignment="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -3,16 +3,20 @@ package sample;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import sample.controller.MainController;
 import sample.controller.RootController;
 import sample.controller.StatController;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.prefs.Preferences;
 
 public class Main extends Application {
@@ -31,6 +35,8 @@ public class Main extends Application {
         initRootLayout();
 
         initMainLayout();
+
+        primaryStage.setOnCloseRequest(this::exit);
     }
 
     private void initRootLayout() {
@@ -97,6 +103,17 @@ public class Main extends Application {
     public void reset() {
         initMainLayout();
         mainController.reset();
+    }
+
+    private void exit(WindowEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Выход");
+        alert.setHeaderText("Вы точно хотите выйти?");
+
+        Optional<ButtonType> type = alert.showAndWait();
+        if (type.get() == ButtonType.CANCEL) {
+            event.consume();
+        }
     }
 
     @Override
