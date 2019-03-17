@@ -19,7 +19,7 @@
           </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <Label fx:id="menuTheory" text="Теория" />
+                  <Label fx:id="menuTheory" onMouseClicked="#handleTheory" text="Теория" />
                </graphic>
             </Menu>
           <Menu mnemonicParsing="false">

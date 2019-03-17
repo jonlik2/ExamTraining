@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.TheoryController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="500.0" prefWidth="600.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="textTheory" alignment="TOP_LEFT" prefWidth="586.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

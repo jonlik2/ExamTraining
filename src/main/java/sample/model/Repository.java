@@ -109,7 +109,8 @@ public class Repository {
 
                 Element root = document.getDocumentElement();
                 int num = Integer.parseInt(root.getAttribute("number"));
-                tasks.add(new Task(num, variants));
+                String theory = root.getElementsByTagName("theory").item(0).getTextContent();
+                tasks.add(new Task(num, variants, theory));
             }
 
         } catch (ParserConfigurationException | SAXException | IOException e) {

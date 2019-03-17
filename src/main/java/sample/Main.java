@@ -14,6 +14,7 @@ import javafx.stage.WindowEvent;
 import sample.controller.MainController;
 import sample.controller.RootController;
 import sample.controller.StatController;
+import sample.controller.TheoryController;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -93,7 +94,30 @@ public class Main extends Application {
         }
     }
 
-    private void saveStat() {
+    public void initTheoryLayout() {
+        try {
+            saveState();
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/theory_layout.fxml"));
+            AnchorPane pane = loader.load();
+
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setTitle("Теория");
+            stage.initOwner(primaryStage);
+
+            Scene scene = new Scene(pane);
+            stage.setScene(scene);
+
+            TheoryController controller = loader.getController();
+            controller.setMainApp(this);
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveState() {
         Preferences prefs = Preferences.userRoot().node("ExamApp").node("tasks");
         prefs.put("current", String.valueOf(mainController.getCurrentNumberOfTask()));
         prefs.node(String.valueOf(mainController.getCurrentNumberOfTask())).put("variant", String.valueOf(mainController.getCurrentNumberOfVariant()));
@@ -119,7 +143,7 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        saveStat();
+        saveState();
     }
 
     public static void main(String[] args) {

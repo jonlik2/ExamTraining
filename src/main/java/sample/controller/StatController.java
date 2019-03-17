@@ -74,7 +74,8 @@ public class StatController {
         allAnswerText.setText(String.valueOf(currentNumberOfVariant));
         trueAnswerText.setText(String.valueOf(score));
         progressIndicator.setProgress(progress);
-        progressIndicator.setStyle(String.format("-fx-accent: %s;", colorSelection(progress)));
+        //progressIndicator.setStyle(String.format("-fx-accent: %s;", colorSelection(progress)));
+        progressIndicator.setStyle(String.format("-fx-progress-color: %s;", colorSelection(progress)));
     }
 
     private String colorSelection(double progress) {

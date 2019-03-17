@@ -33,6 +33,11 @@ public class RootController {
     }
 
     @FXML
+    private void handleTheory() {
+        mainApp.initTheoryLayout();
+    }
+
+    @FXML
     private void handleAbout() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Exam Training");
