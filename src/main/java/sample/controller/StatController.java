@@ -3,11 +3,9 @@ package sample.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressIndicator;
 import sample.Main;
 import sample.model.Repository;
 import sample.model.Task;
@@ -38,10 +36,6 @@ public class StatController {
 
     public StatController() {
         repository = Repository.getInstance();
-    }
-
-    public PieChart getChart() {
-        return chart;
     }
 
     public void setMainApp(Main mainApp) {

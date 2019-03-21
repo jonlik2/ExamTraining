@@ -13,7 +13,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="600.0">
                <children>
-                  <Label fx:id="textTheory" alignment="TOP_LEFT" prefWidth="586.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                  <Label fx:id="textTheory" alignment="TOP_LEFT" prefWidth="586.0" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
                      <font>
                         <Font size="14.0" />
                      </font>

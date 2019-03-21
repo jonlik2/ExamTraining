@@ -41,7 +41,7 @@ public class RootController {
     private void handleAbout() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Exam Training");
-        alert.setHeaderText("Программа для подготовки к ГИА");
+        alert.setHeaderText("Программа для подготовки к ОГЭ по русскому языку");
         alert.setContentText("Автор: Барболин Семен\nс. Кичменгский Городок");
         alert.showAndWait();
     }

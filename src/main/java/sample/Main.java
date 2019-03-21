@@ -102,6 +102,7 @@ public class Main extends Application {
     public void initTheoryLayout() {
         try {
             saveState();
+
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("fxml/theory_layout.fxml"));
             AnchorPane pane = loader.load();
 
