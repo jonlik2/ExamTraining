@@ -1,7 +1,10 @@
 package sample.controller;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
@@ -16,7 +19,7 @@ import java.util.prefs.Preferences;
 public class StatController {
 
     @FXML
-    private ProgressIndicator progressIndicator;
+    private PieChart chart;
 
     @FXML
     private ChoiceBox<String> choiceBox;
@@ -28,11 +31,17 @@ public class StatController {
     private Label trueAnswerText;
 
     private Main mainApp;
-
     private Repository repository;
+
+    private int currentNumberOfVariant;
+    private int score;
 
     public StatController() {
         repository = Repository.getInstance();
+    }
+
+    public PieChart getChart() {
+        return chart;
     }
 
     public void setMainApp(Main mainApp) {
@@ -53,43 +62,37 @@ public class StatController {
                 resetUI();
             } else {
                 initUI(getNumberTask(String.valueOf(newValue)));
+
+                float correctPercent = score * 100 / currentNumberOfVariant;
+                float uncorrectPercent = 100 - correctPercent;
+
+                ObservableList<PieChart.Data> chartData = FXCollections.observableArrayList(
+                        new PieChart.Data("Правильные", correctPercent),
+                        new PieChart.Data("Неправильные", uncorrectPercent)
+                );
+                chart.setData(chartData);
             }
         }));
     }
 
     private void resetUI() {
-        draw(0, 0, 0.0);
+        draw(0, 0);
     }
 
     private void initUI(int numberTask) {
         Preferences prefs = Preferences.userRoot().node("ExamApp").node("tasks");
 
-        int currentNumberOfVariant = Integer.parseInt(prefs.node(String.valueOf(numberTask)).get("variant", null));
-        int score = Integer.parseInt(prefs.node(String.valueOf(numberTask)).get("score", null));
+        currentNumberOfVariant = Integer.parseInt(prefs.node(String.valueOf(numberTask)).get("variant", null));
+        score = Integer.parseInt(prefs.node(String.valueOf(numberTask)).get("score", null));
 
-        draw(currentNumberOfVariant, score, (double) score / currentNumberOfVariant);
+        draw(currentNumberOfVariant, score);
     }
 
-    private void draw(int currentNumberOfVariant, int score, double progress) {
+    private void draw(int currentNumberOfVariant, int score) {
         allAnswerText.setText(String.valueOf(currentNumberOfVariant));
         trueAnswerText.setText(String.valueOf(score));
-        progressIndicator.setProgress(progress);
-        //progressIndicator.setStyle(String.format("-fx-accent: %s;", colorSelection(progress)));
-        progressIndicator.setStyle(String.format("-fx-progress-color: %s;", colorSelection(progress)));
     }
 
-    private String colorSelection(double progress) {
-        if (progress >= 0 && progress <= 0.25) {
-            return "darkred";
-        } else if (progress > 0.25 && progress <= 0.5) {
-            return "chocolate";
-        } else if (progress > 0.5 && progress <= 0.75) {
-            return "orange";
-        } else if (progress >= 0.75) {
-            return "green";
-        }
-        return null;
-    }
 
     private List<String> getTitlesTask() {
         List<String> list = new ArrayList<>();

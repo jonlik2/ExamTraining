@@ -8,6 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -32,6 +33,8 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Exam Training");
         this.primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResource("images/favicon.png").toString()));
+
+        this.primaryStage.setResizable(false);
 
         initRootLayout();
 
@@ -87,6 +90,8 @@ public class Main extends Application {
 
             StatController controller = loader.getController();
             controller.setMainApp(this);
+
+            saveState();
 
             stage.show();
         } catch (IOException e) {

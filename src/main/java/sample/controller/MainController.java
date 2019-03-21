@@ -163,7 +163,6 @@ public class MainController {
             textQuestion.setText(repository.getTaskByNumber(currentNumberOfTask).getVariants().get(currentNumberOfVariant - 1).getQuestion());
             textResult.setText("");
         } else {
-            currentNumberOfVariant = 1;
             textQuestion.setText("");
             textResult.setText("Вы закончили данное задание. Выберите другое!\nПравильных ответов: " + score);
             btnAnswer.setDisable(true);
